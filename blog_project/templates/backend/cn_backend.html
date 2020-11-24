@@ -1,0 +1,37 @@
+{% extends 'backend/base.html' %}
+
+{% block content %}
+    <div class="cnb-table">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="title-field">标题</th>
+                <th class="text-center">评论数</th>
+                <th class="text-center">点赞数</th>
+                <th class="text-center">反对数</th>
+                <th class="text-center">操作</th>
+                <th class="text-center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for article in article_list %}
+                <tr class="ng-star-inserted">
+                    <td><a target="_blank" class="entry"
+                           href="/{{ request.user.username }}/articles/{{ article.pk }}">{{ article.title }}</a>
+                        &nbsp;&nbsp;({{ article.create_time|date:'Y-m-d H:i' }})
+                    </td>
+                    <td class="text-center">{{ article.comment_count }}</td>
+                    <td class="text-center">{{ article.up_count }}</td>
+                    <td class="text-center">{{ article.down_count }}</td>
+                    <td class="text-center">
+                        <a href="/cn_backend/change_article/{{ article.pk }}">编辑</a></td>
+                    <td class="text-center">
+                        <a href="/cn_backend/del_article/{{ article.pk }}">删除</a></td>
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

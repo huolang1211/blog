@@ -1,0 +1,197 @@
+
+# blog_project
+
+---
+
+## Introduction
+
+后端使用 `django`
+
+前端使用 `jquery` & `bootstrap` 
+
+## 开发环境
+
+- Python 3.6.8  
+- Django 3.1.3
+- Jquery 3.4.1 
+- Bootstrap 3.3.7
+- kindeditor
+
+## Quick Tutorial
+
+
+### 生成表结构
+
+> 使用 `mysql` 数据库
+
+```
+python manage.py makemigrations
+
+python manage.py migrate
+```
+
+### 启动项目
+
+```
+python manage.py runserver 8000
+
+后台地址：
+
+127.0.0.1:8000/admin/
+
+账号密码 root 123
+```
+
+### 登录用户信息
+```
+python manage.py runserver 8000
+
+超级用户：
+
+账号密码 root 123
+
+普通用户：
+
+账号密码 yuan 123
+账号密码 alex 123
+账号密码 hello 123
+```
+
+### 程序的实现的功能
+```
+
+1. 基于ajax和用户认证组件实现登录验证
+2. 基于ajax和form组件实现注册功能
+3. 系统首页文章列表的渲染
+4. 个人站点页面设计
+5. 文章详细页的继承
+6. 点赞与踩
+7. 评论功能
+8. 富文本编辑器的使用
+9. 防止xss攻击
+
+```
+### 代码结构
+```
+/book_project
+├── README 程序说明文件
+├── 流程图.jpg # 流程图文件
+├── 表结构.jpg # 表结构图片文件
+├── blog软件说明.mp4 # 软件演示视频
+├── img 效果图
+│   ├── blog_db #数据库
+│   ├── blog_project
+│   │   ├── __init__.py
+│   │   ├── asgi.py # ASGI配置
+│   │   ├── setting.py # 项目配置
+│   │   ├── urls.py # 负责把URL模式映射到应用程序
+│   │   ├── wsgi.py # WSGI配置
+│   ├── blog # app应用
+│   │   ├── migrations # 数据库相关
+│   │   ├── utils # 工具
+│   │   │   ├── valid_code.py # 创建随机验证码
+│   │   ├── admin.py # 后台管理
+│   │   ├── apps.py # 应用程序配置
+│   │   ├── models.py # 模型
+│   │   ├── myforms.py # 数据校验
+│   │   ├── tests.py # 测试
+│   │   └── viems.py # 视图 主逻辑
+│   ├── media #存放用户上传文件
+│   │   ├── add_article_img #存放用户上传文件
+│   │   ├── avatars #存放头像文件
+│   │   └── __init__.py
+│   ├── static  # 静态文件
+│   │   ├── __init__.py
+│   │   ├── blog # blog的静态文件
+│   │   │   ├── css # 样式文件
+│   │   │   ├── js # javascript文件
+│   │   │   ├── img # blog的图片文件
+│   │   │   ├── kindeditor # 富文本编辑框
+│   │   ├── bootstrap # bootstrap文件
+│   │   ├── font # 字体文件
+│   │   └── jquery-3.4.1.min.js # jquery文件
+│   ├── templates  # 模板文件
+│   │   ├── __init__.py
+│   │   ├── backend # 后台管理页面文件
+│   ├── book_db  # 数据库文件
+│   └── venv # 虚拟环境
+├── __init__.py
+└── manage.py # django工具
+```
+### 效果图
+
+![image](https://github.com/huolang1211/book/blob/master/blog_project/img/1.png)
+![image](https://github.com/huolang1211/book/blob/master/blog_project/img/2.png)
+![image](https://github.com/huolang1211/book/blob/master/blog_project/img/3.png)
+![image](https://github.com/huolang1211/book/blob/master/blog_project/img/4.png)
+![image](https://github.com/huolang1211/book/blob/master/blog_project/img/5.png)
+![image](https://github.com/huolang1211/book/blob/master/blog_project/img/6.png)
+
+## 常见问题
+
+### mysql 数据库使用 
+
+* 配置
+
+```
+# 在 settings.py 文件下找到 DATABASES 配置，修改为 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '数据库名称',
+        'USER': '用户名',
+        'PASSWORD': '密码',
+        'HOST': '',  # 默认 127.0.0.1
+        'PORT': '',  # 默认 3306
+    }
+}
+```
+
+然后连接至您的数据库终端
+
+```
+$ mysql -u 用户名 -p 密码
+创建数据库，记得指定编码
+>>> create database 数据库名称 default charset utf8;
+
+```
+
+### 第一次执行这条语句报No changes detected
+
+* 问题
+
+```
+python manage.py makemigrations
+```
+
+* 解决
+
+在`APP`创建目录 migrations 并在里面创建__init__.py
+```
+mkdir APP_NAME/migrations
+touch APP_NAME/migrations/__init__.py
+```
+
+
+### 头像文件存放在配置
+
+* 默认
+
+```
+ /media/avatars
+```
+
+* 配置
+
+```
+# 在 settings.py 文件下找到 MEDIA_ROOT 配置，
+    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+  将其中的media修改成你要想的文件夹
+```
+
+
+
+```
+2020 By Odin.
+```

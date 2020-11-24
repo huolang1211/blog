@@ -1,0 +1,91 @@
+.title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#div_digg {
+    float: right;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    font-size: 12px;
+    width: 125px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.diggit {
+    float: left;
+    width: 46px;
+    height: 52px;
+    background: url(/static/blog/img/upup.gif) no-repeat;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 2px;
+    padding-top: 5px;
+}
+
+.buryit {
+    float: right;
+    margin-left: 20px;
+    width: 46px;
+    height: 52px;
+    background: url(/static/blog/img/downdown.gif) no-repeat;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 2px;
+    padding-top: 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+.diggword {
+    margin-top: 5px;
+    margin-left: 0;
+    font-size: 12px;
+    color: #808080;
+}
+.comment_my_posted a{
+    color: #399ab2;
+    text-decoration: none;
+}
+.bq_post_comment {
+    margin: 0 0 5px 0;
+    font-style: normal;
+    line-height: 180%;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+/*评论列表*/
+.feedbackItem {
+    padding: 8px;
+    border-bottom: 1px dotted #ccc;
+}
+.feedbackItem a{
+    color: #399ab2;
+    text-decoration: none;
+    font-size: 16px;
+}
+.feedbackItem a:hover{
+    color: #9cba39;
+}
+.feedbackManage {
+    float: right;
+}
+
+.feedbackCon {
+    color: #888;
+    font-size: 12px;
+    line-height: 135%;
+    padding: 7px;
+    padding-right: 0;
+}
+/*评论树*/
+.comment_item{
+    margin-left: 20px;
+}
+/*评论框*/
+#comment_content{
+    padding: 5px;
+}
